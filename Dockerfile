@@ -5,8 +5,10 @@ FROM $IMAGE
 WORKDIR /home/irisowner/dev/
 
 ARG TESTS=0
-ARG MODULE="interoperability-sample"
+ARG MODULE="iris-cdc-sample"
 ARG NAMESPACE="USER"
+
+COPY postgresql-42.7.8.jar . 
 
 RUN --mount=type=bind,src=.,dst=. \
     iris start IRIS && \

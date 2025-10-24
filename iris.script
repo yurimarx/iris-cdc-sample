@@ -3,6 +3,8 @@
     zn "%SYS"
     Do ##class(Security.Users).UnExpireUserPasswords("*")
 
+    Do ##class(%SYS.Credentials).CreateCredentials("pg_cred", "sales_user", "welcome1", "Postgres credentials")
+
     zn "USER"
     zpm "install git-source-control"
     do ##class(%Studio.SourceControl.Interface).SourceControlClassSet("SourceControl.Git.Extension")
