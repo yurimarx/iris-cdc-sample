@@ -22,6 +22,7 @@
       </Dependencies>
       <SourcesRoot>src</SourcesRoot>
       <Resource Name="dc.cdc.PKG"/>
+      <Resource Directory="dfi" FilenameExtension="dfi" Name="BAMDashboard.dashboard.DFI" />
       <SystemRequirements Version=">=2020.1" Interoperability="enabled" />
     </Module>
   </Document>

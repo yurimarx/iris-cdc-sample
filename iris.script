@@ -3,9 +3,17 @@
     zn "%SYS"
     Do ##class(Security.Users).UnExpireUserPasswords("*")
 
-    Do ##class(%SYS.Credentials).CreateCredentials("pg_cred", "sales_user", "welcome1", "Postgres credentials")
-
+    
     zn "USER"
+    do EnableDeepSee^%SYS.cspServer("/csp/user/")
+
+    Set status = ##class(Ens.Config.Credentials).SetCredential("pg_cred", "sales_user", "welcome1", 1)
+    If $$$ISOK(status) {
+        Write "Credentials created successfully."
+    } Else {
+        Write "Error creating credentials."
+    }
+
     zpm "install git-source-control"
     do ##class(%Studio.SourceControl.Interface).SourceControlClassSet("SourceControl.Git.Extension")
     zpm "install passwordless"
